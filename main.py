@@ -6,7 +6,7 @@ import pygame
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-    clock = pygame.time.Clock.tick()
+    clock = pygame.time.Clock()
     dt = 0
     
     while True:
@@ -15,7 +15,6 @@ def main():
                 return
         pygame.Surface.fill(screen,(0,0,0))
         pygame.display.flip()
-        pygame.time.Clock.tick(60)
         dt = clock.tick(60) / 1000
     
 
