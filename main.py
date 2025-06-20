@@ -6,6 +6,7 @@ from player import *
 from asteroid import *
 from asteroidfield import *
 import pygame
+import sys
 def main():
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -26,9 +27,13 @@ def main():
             if event.type == pygame.QUIT:
                 return
         
+
         
         updateable.update(dt)
-        
+        for asteroids in asteroidField:
+            if asteroids.collisions(player):
+                print("Game over!")
+                sys.exit()
         pygame.Surface.fill(screen,(0,0,0))
         for drawable_object in drawable:
             drawable_object.draw(screen)
