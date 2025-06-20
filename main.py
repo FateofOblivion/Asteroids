@@ -30,8 +30,8 @@ def main():
 
         
         updateable.update(dt)
-        for asteroids in asteroidField:
-            if asteroids.collisions(player):
+        for asteroid in asteroids:
+            if asteroid.collisions(player):
                 print("Game over!")
                 sys.exit()
         pygame.Surface.fill(screen,(0,0,0))
